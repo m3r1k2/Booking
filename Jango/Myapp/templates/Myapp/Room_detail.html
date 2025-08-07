@@ -1,0 +1,9 @@
+{% extends 'Myapp/index.html' %}
+
+{% block content %}
+<h1>{{ room.name }}</h1>
+<p><strong>Тип:</strong> {{ room.room_type }}</p>
+<p><strong>Опис:</strong> {{ room.description }}</p>
+<p><strong>Спальних місць:</strong> {{ room.sleep_places }}</p>
+<p><strong>Ціна:</strong> {{ room.day_price }} грн</p>
+{% endblock %}

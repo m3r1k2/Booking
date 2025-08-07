@@ -1,0 +1,21 @@
+{% extends "Myapp/index.html" %}
+{% block title %}Бронювання{% endblock %}
+{% block content %}
+<h2>Форма бронювання</h2>
+
+
+{% if messages %}
+    {% for message in messages %}
+        <div style="color: {% if message.tags == 'error' %}red{% else %}green{% endif %};">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Забронювати</button>
+</form>
+{% endblock %}

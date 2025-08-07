@@ -1,0 +1,23 @@
+{% extends "Myapp/index.html" %}
+{% block title %}Список кімнат{% endblock %}
+
+{% block content %}
+<h2>Доступні кімнати</h2>
+
+<div style="display: flex; flex-direction: column; gap: 15px; margin-top: 20px;">
+    {% for room in rooms %}
+        <a href="{% url 'room_detail' room.id %}" style="text-decoration: none;">
+            <button class="button">
+                <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">
+                        {{ room.name }} – {{ room.sleep_places }} спальних місць
+                    </span>
+                </span>
+            </button>
+        </a>
+    {% empty %}
+        <p>Немає доступних кімнат.</p>
+    {% endfor %}
+</div>
+{% endblock %}
